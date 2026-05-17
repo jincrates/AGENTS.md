@@ -39,8 +39,22 @@ Problem definition → small, safe change → change review → refactor — rep
 
 - New code requires new tests; bug fixes must include a regression test (write it to fail first).
 - Tests must be deterministic and independent; replace external systems with fakes/contract tests.
-- Include ≥1 happy path and ≥1 failure path in e2e tests.
+- When adding or changing e2e coverage, include ≥1 happy path and ≥1 failure path.
+- For docs/config-only changes, explain why runtime tests are not needed.
 - Proactively assess risks from concurrency/locks/retries (duplication, deadlocks, etc.).
+
+## Commit Rules
+
+- Commit titles must use a Conventional Commit type prefix such as `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `build:`, `ci:`, or `chore:`.
+- After the Conventional Commit prefix, write the commit title in Korean by default unless the user explicitly requests another language.
+- Do not create, amend, or push commits unless the user explicitly asks.
+- Commit bodies should list what changed as plain bullet points before the trailer.
+- Keep commit body bullet items contiguous, with no blank lines between bullet items.
+- For multi-line commit bodies, use a commit message file or a single body argument that preserves adjacent bullet lines; do not pass each bullet as a separate `-m` paragraph.
+- When Codex creates or amends a commit, include a `Co-Authored-By` trailer by default.
+- Use the requested or active model name when it is explicitly available, for example `Co-Authored-By: GPT 5.5 <codex@openai.com>`.
+- If the requested or active model name is not visible, use `Co-Authored-By: Codex <codex@openai.com>` rather than guessing a model version.
+- Omit the trailer only when explicitly requested.
 
 ## Security Rules
 
